@@ -4,6 +4,7 @@ import asyncio
 import tempfile
 import sys
 import os
+import site
 from pathlib import Path
 from typing import Optional
 import httpx
@@ -83,14 +84,18 @@ class VerificationRunner:
             test_path.write_text(test_script, encoding="utf-8")
 
             # Execute pytest as subprocess with scrubbed environment and isolated scratch HOME
+            user_site = site.getusersitepackages()
+            pythonpath = f"{tmppath}:{user_site}" if user_site else str(tmppath)
             clean_env = self._get_sanitized_env({
-                "PYTHONPATH": str(tmppath),
+                "PYTHONPATH": pythonpath,
                 "HOME": str(tmppath),
             })
             proc = await asyncio.create_subprocess_exec(
                 sys.executable,
                 "-m",
                 "pytest",
+                "-o",
+                "asyncio_mode=auto",
                 str(test_path),
                 "-v",
                 "--tb=short",

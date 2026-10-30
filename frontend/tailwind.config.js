@@ -4,34 +4,31 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        base: {
-          950: "#050507",
-          900: "#09090b",
-          850: "#101014",
-          800: "#18181b",
-          700: "#27272a",
-          600: "#3f3f46",
-          500: "#52525b",
-          400: "#71717a",
-          300: "#a1a1aa",
-          200: "#e4e4e7",
-          100: "#f4f4f5",
-        },
         brand: {
-          DEFAULT: "#ffffff",
-          invert: "#000000",
-          accent: "#f59e0b", // Warm amber accent for run latency/highlights
-          muted: "#3f3f46",
-        }
+          violet: "#7057FF",
+          coral: "#FF6082",
+          purple: "#9B51E0",
+          surface: "#FFFFFF",
+          bg: "#FAF5F8",
+          border: "#EAE3EA",
+          "border-subtle": "#F2ECF2",
+          text: "#1E1B26",
+          muted: "#766F82",
+        },
       },
       fontFamily: {
-        sans: ['"Geist"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
-        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-      }
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
+      borderRadius: {
+        DEFAULT: "0.375rem",
+        md: "0.5rem",
+        lg: "0.75rem",
+        xl: "1rem",
+      },
     },
   },
   plugins: [],

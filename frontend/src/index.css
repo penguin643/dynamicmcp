@@ -3,32 +3,39 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-base-900 text-base-100 min-h-screen antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #FAF5F8;
+    color: #1E1B26;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 
-/* Subtle, sharp scrollbar */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  vertical-align: middle;
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 2px;
+  background: #E0D7E0;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
-}
-
-/* Code block clean background */
-pre {
-  background: transparent !important;
-}
-code {
-  font-family: 'Geist Mono', monospace !important;
+  background: #CCA3C0;
 }
