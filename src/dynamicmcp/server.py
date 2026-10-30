@@ -400,9 +400,13 @@ if FRONTEND_DIST_DIR.exists():
         return JSONResponse({"status": "DynamicMCP API running. Frontend static files not yet compiled."})
 
 
-def run_server(host: str = "0.0.0.0", port: int = 8000, reload: bool = False):
+def run_server(host: Optional[str] = None, port: Optional[int] = None, reload: bool = False):
     """Run the FastAPI application with Uvicorn."""
     import uvicorn
+    if host is None:
+        host = os.environ.get("HOST", "0.0.0.0")
+    if port is None:
+        port = int(os.environ.get("PORT", "8000"))
     uvicorn.run("dynamicmcp.server:app", host=host, port=port, reload=reload)
 
 

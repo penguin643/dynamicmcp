@@ -1,0 +1,40 @@
+# Git
+.git
+.gitignore
+
+# Python caches and virtual environments
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Node.js
+frontend/node_modules/
+frontend/.vite/
+node_modules/
+
+# Agent & Brain session artifacts
+.agents/
+.gemini/
+*.tmp
+*.log
+stitch_screen.*
+frontend_preview.*
+
+# Submissions & environment secrets
+.env
+.env.local
+SUBMISSION.md
+DEVPOST_SUBMISSION.md
+NEBIUS_FEEDBACK.txt

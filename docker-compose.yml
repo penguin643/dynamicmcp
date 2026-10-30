@@ -1,0 +1,28 @@
+services:
+  dynamicmcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dynamicmcp:latest
+    container_name: dynamicmcp-app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8000}:${PORT:-8000}"
+    environment:
+      - PORT=${PORT:-8000}
+      - HOST=0.0.0.0
+      - NEBIUS_API_KEY=${NEBIUS_API_KEY:-mock-key}
+      - NEBIUS_PROJECT_ID=${NEBIUS_PROJECT_ID:-project_dynamicmcp}
+      - NEBIUS_TOKEN_FACTORY_URL=${NEBIUS_TOKEN_FACTORY_URL:-https://api.studio.nebius.ai/v1}
+      - NEBIUS_JOBS_API_URL=${NEBIUS_JOBS_API_URL:-https://api.nebius.ai/v1/jobs}
+      - DYNAMICMCP_OFFLINE_MODE=${DYNAMICMCP_OFFLINE_MODE:-false}
+      - DYNAMICMCP_DB_PATH=/data/skills.db
+      - DYNAMICMCP_CACHE_DIR=/data/cache
+      - NEMOCLAW_POLICY_DIR=/app/policies
+    volumes:
+      - dynamicmcp-data:/data
+      - ./policies:/app/policies
+
+volumes:
+  dynamicmcp-data:
+    driver: local

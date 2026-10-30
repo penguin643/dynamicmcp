@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: dynamicmcp
+    runtime: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /api/system
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DYNAMICMCP_OFFLINE_MODE
+        value: "false"
+      - key: NEBIUS_API_KEY
+        sync: false
+      - key: NEBIUS_PROJECT_ID
+        value: project_dynamicmcp
+      - key: NEBIUS_TOKEN_FACTORY_URL
+        value: https://api.studio.nebius.ai/v1
+      - key: NEBIUS_JOBS_API_URL
+        value: https://api.nebius.ai/v1/jobs
+    disk:
+      name: dynamicmcp-storage
+      mountPath: /data
+      sizeGB: 1

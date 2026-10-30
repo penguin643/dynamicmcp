@@ -30,7 +30,7 @@ When an agent needs to perform an action for which it lacks a pre-existing tool:
 ### 1. Installation
 
 ```bash
-git clone https://github.com/your-username/dynamicmcp.git
+git clone https://github.com/penguin643/dynamicmcp.git
 cd dynamicmcp
 
 # Run automated initialization
@@ -110,6 +110,30 @@ dynamicmcp list
 ```bash
 dynamicmcp serve --port 8000
 ```
+
+---
+
+## ☁️ Cloud Deployment
+
+DynamicMCP is packaged as a production multi-stage Docker container serving both the FastAPI REST backend and the React Studio web dashboard.
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new)
+
+### 1. Instant Cloud PaaS (Render / Railway / Fly.io)
+- **Render**: Connect the repo to Render Blueprint. Render automatically provisions the Docker service from [`render.yaml`](render.yaml) with an attached 1 GB persistent disk for the SQLite skill store.
+- **Railway**: 1-click deploy from GitHub repo using root [`Dockerfile`](Dockerfile).
+- **Fly.io**: Run `fly launch` using [`fly.toml`](fly.toml).
+
+### 2. Self-Hosted Docker Compose (Cloud VM / VPS)
+```bash
+# Clone and spin up with persistent storage
+git clone https://github.com/penguin643/dynamicmcp.git
+cd dynamicmcp
+docker compose up -d
+```
+
+For full setup details, environment configuration, and persistence guides, see **[DEPLOYMENT.md](DEPLOYMENT.md)**.
 
 ---
 

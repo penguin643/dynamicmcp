@@ -2,6 +2,7 @@
 
 import asyncio
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Optional
@@ -141,8 +142,8 @@ def run(tool_name: str, args: str):
 
 
 @main.command()
-@click.option("--host", default="0.0.0.0", help="Host interface to bind.")
-@click.option("--port", default=8000, type=int, help="Port to serve.")
+@click.option("--host", default=lambda: os.environ.get("HOST", "0.0.0.0"), help="Host interface to bind.")
+@click.option("--port", default=lambda: int(os.environ.get("PORT", "8000")), type=int, help="Port to serve.")
 @click.option("--reload", is_flag=True, default=False, help="Enable auto-reload for development.")
 def serve(host: str, port: int, reload: bool):
     """Start the DynamicMCP Web Application & REST API."""
