@@ -19,7 +19,7 @@ services:
         value: https://api.studio.nebius.ai/v1
       - key: NEBIUS_JOBS_API_URL
         value: https://api.nebius.ai/v1/jobs
-    disk:
-      name: dynamicmcp-storage
-      mountPath: /data
-      sizeGB: 1
+      - key: DYNAMICMCP_DB_PATH
+        value: /data/skills.db
+      - key: DYNAMICMCP_CACHE_DIR
+        value: /data/cache

@@ -47,9 +47,7 @@ Render automatically detects the [`render.yaml`](./render.yaml) blueprint in the
 1. Go to [Render Dashboard](https://dashboard.render.com).
 2. Click **New +** > **Blueprint**.
 3. Connect your GitHub repository: `https://github.com/penguin643/dynamicmcp.git`.
-4. Render will read `render.yaml` and provision:
-   - A Docker Web Service running the FastAPI app + Studio UI.
-   - An attached 1 GB persistent disk mounted at `/data` for the SQLite skill store.
+4. Render will read `render.yaml` and provision a Free Tier Docker Web Service running the FastAPI app + Studio UI.
 5. Set your environment variables in the Render dashboard:
    - `NEBIUS_API_KEY`: Your Nebius AI Studio API Key.
    - `DYNAMICMCP_OFFLINE_MODE`: Set to `false` (or `true` if evaluating without an API key).
@@ -58,10 +56,9 @@ Render automatically detects the [`render.yaml`](./render.yaml) blueprint in the
 ### Option B: Manual Web Service
 1. Click **New +** > **Web Service**.
 2. Select your repository.
-3. Choose **Docker** as the Runtime.
+3. Choose **Docker** as the Runtime and **Free** instance plan.
 4. Set Health Check path to `/api/system`.
-5. Under **Disks**, add a disk named `data` mounted to `/data`.
-6. Click **Deploy Web Service**.
+5. Click **Deploy Web Service**.
 
 ---
 
